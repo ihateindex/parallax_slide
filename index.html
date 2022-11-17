@@ -1,23 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./js/swiper/swiper.min.css">
-    <script src="./js/jquery-3.3.1.min.js"></script>
-    <script src="./js/swiper/swiper.min.js"></script>
-    <script src="./js/gsap/gsap.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="inner">
-            
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/font.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <!-- <link rel="stylesheet" href="./js/swiper/swiper-bundle.min.css" /> -->
+        <link rel="stylesheet" href="./js/swiper/swiper.min.css" />
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <!-- <script src="./js/swiper/swiper-bundle.min.js"></script> -->
+        <script src="./js/swiper/swiper.min.js"></script>
+        <script src="./js/gsap/gsap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="inner">
+                <header></header>
+                <div class="swiper main-slider loading">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <figure class="slide-bg" style="background-image: url(./img/nike.jpeg)">
+                                <img src="./img/nike.jpeg" alt="" class="entity-img" />
+                            </figure>
+                            <div class="content">
+                                <h2 class="title">매일 오후 12시 정각 오픈!</h2>
+                                <p class="caption">한정 수량 블랙박스 22.11.14 - 11.23</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="slide-bg" style="background-image: url(./img/blackfriday.jpeg)">
+                                <img src="./img/blackfriday.jpeg" alt="" class="entity-img" />
+                            </figure>
+                            <div class="content">
+                                <h2 class="title">무진장 2022 BLACK FRIDAY</h2>
+                                <p class="caption">하루 4번, 선착순 특가 최대 80% 할인</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="slide-bg" style="background-image: url(./img/tamiya.jpeg)">
+                                <img src="./img/tamiya.jpeg" alt="" class="entity-img" />
+                            </figure>
+                            <div class="content">
+                                <h2 class="title">칠성 × 타미야 굿즈</h2>
+                                <p class="caption">한정 발매 | 사은품 5명 증정</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="slide-bg" style="background-image: url(./img/osoi.jpeg)">
+                                <img src="./img/osoi.jpeg" alt="" class="entity-img" />
+                            </figure>
+                            <div class="content">
+                                <h2 class="title">오소이 블랙프라이데이</h2>
+                                <p class="caption">72시간 특가</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure class="slide-bg" style="background-image: url(./img/yeseyesee.jpeg)">
+                                <img src="./img/yeseyesee.jpeg" alt="" class="entity-img" />
+                            </figure>
+                            <div class="content">
+                                <h2 class="title">예스아이씨 월드컵 컬렉션</h2>
+                                <p class="caption">한정 발매 | 최대 10% 쿠폰</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+
+                    <!-- If we need navigation buttons -->
+                    <!-- <div class="swiper-button-prev"></div> -->
+                    <!-- <div class="swiper-button-next"></div> -->
+
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+                <div class="content">
+                    <img src="./img/content.png" alt="" />
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+        <script>
+            let mainSliderSelector = ".main-slider",
+                interleaveOffset = 1;
+                titleLeaveOffset = -50;
+
+            let mainSliderOptions = {
+                loop: true,
+                speed: 1000,
+                // parallax: true,
+                // autoplay: {
+                //     delay: 3000
+                // },
+                loopAdditionalSlides: 10,
+                grabSlidesProgress: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                on: {
+                    // init: function() {
+                    //     this.autoplay.stop();
+                    // },
+                    // imagesReady: function() {
+                    //     this.el.classList.remove('loading');
+                    //     this.autoplay.start();
+                    // },
+                    // slideChangeTransitionEnd: function() {
+                    //     // <!-- * 슬라이드 전환이 끝나면 caption 텍스트 나타나는 트랜지션 -->
+                    //     let swiper = this,
+                    //     captions = swiper.el.querySelectorAll('.caption')
+                    //     // <!-- * 전체 caption 텍스트들에게서 show 클래스 제거 -->
+                    //     // <!-- * 트랜지션 효과 사라짐 -->
+                    //     for(let i = 0; i < captions.length; i++) {
+                    //         captions[i].classList.remove('show');
+                    //     }
+                    //     // <!-- * 액티브된 caption 텍스트들에게서 show 클래스 세팅 -->
+                    //     // <!-- * 트랜지션 효과 나타남 -->
+                    //     swiper.slides[swiper.activeIndex].querySelector('.caption').classList.add('show');
+                    // }
+                    progress: function () {
+                        // <!-- * 슬라이드 전환시 액티브 배경 이미지가 패럴랙스효과로 고정 되는 트랜지션 -->
+                        let swiper = this;
+                        for (let i = 0; i < swiper.slides.length; i++) {
+                            let slideProgress = swiper.slides[i].progress,
+                                innerOffset = swiper.width * interleaveOffset,
+                                innerTranslate = slideProgress * innerOffset;
+                                titleTranslate = slideProgress * titleLeaveOffset;
+
+                            swiper.slides[i].querySelector('.slide-bg').style.transform = 'translateX(' + innerTranslate + 'px)';
+                            swiper.slides[i].querySelector('.swiper-slide .title').style.transform = 'translateX(' + titleTranslate + 'px)';
+                        }
+                    },
+                    touchStart: function () {
+                        let swiper = this;
+                        for (let i = 0; i < swiper.slides.length; i++) {
+                            swiper.slides[i].style.transition = '';
+                        }
+                    },
+                    setTransition: function (speed) {
+                        let swiper = this;
+                        for (let i = 0; i < swiper.slides.length; i++) {
+                            swiper.slides[i].style.transition = speed + 'ms';
+                            swiper.slides[i].querySelector('.slide-bg').style.transition = speed + 'ms';
+                        }
+                    },
+                },
+            };
+            const swiper = new Swiper(mainSliderSelector, mainSliderOptions);
+        </script>
+    </body>
 </html>
